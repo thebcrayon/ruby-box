@@ -1,18 +1,11 @@
-Book = Struct.new(:title)
+def isogram?(string)
+  original_length = string.length
+  string_array = string.downcase.split("")
 
-def find_book(title)
-  books = []
-  books << Book.new('Eloquent Ruby')
+  debugger
 
-  require 'pry-byebug' ; binding.pry
-
-  books.find { |b| b.title == title }
+  unique_length = string_array.uniq.length
+  original_length == unique_length
 end
 
-book = find_book('Eloquent Ruby')
-p book # This will print our book object
-
-book = find_book('POODR')
-p book # This will print nil
-
-book.name # Guess what happens next!
+isogram?("Odin")
