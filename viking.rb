@@ -16,35 +16,48 @@ class Viking
   end
 
   # Instance Variables and Methods
-  attr_accessor :name, :age, :health, :strength
-
+  attr_accessor :name, :age, :health, :strength, :dead
+ 
   def initialize(name, age, health, strength)
     @name = name
     @age = age
     @health = health
     @strength = strength
+    @dead = false
   end
-
-  def take_damage(damage)
-    self.health -= damage
-    self.shout("OUCH!")
-  end
-
+  
   def sleep(num)
     num.times do |i|
       self.health += 1 unless self.health >= 119
     end
   end
 
-  def shout(str)
-    puts str
+  def attack(recipient)
+    if recipient.dead
+      puts "#{recipient.name} is already dead!"
+      return false
+    end
+      damage = (rand * 10 + 10).round(0)
+      recipient.take_damage(self.name, damage)  # `take_damage` called on `recipient`!
+  end
+
+  protected
+  def take_damage(attacker, damage)
+    self.health -= damage
+    puts "Ouch! #{self.name} took #{damage} damage from #{attacker} and has #{self.health} health left"
+    die if @health <= 0  
+    # `die` called from within the same object as take_damage was (the `recipient` as well!)
   end
 
   private
-
+  def die
+    puts "#{self.name} has been killed :("
+    self.dead = true    # assume we've defined a `dead` instance variable
+end
   
 end
 
-viking = Viking.create_warrior
+viking1 = Viking.create_warrior
+viking2 = Viking.create_warrior
 
-p viking
+10.times { viking1.attack(viking2) }
