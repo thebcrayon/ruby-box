@@ -3,15 +3,15 @@ class Viking
   # Class Variable and Methods
   @@starting_health = 120
 
-  def Viking.create_warrior
+  def self.create_warrior
     age = (rand * 20 + 15).to_i
-    name = Viking.random_name
+    name = self.random_name
     health = [age * 5, @@starting_health].min
     strength = [age / 2, 10].min
     Viking.new(name, age, health, strength)
   end
 
-  def Viking.random_name
+  def self.random_name
     ["Erik","Lars","Leif","Brock", "Sven", "Lutz", "Holfen"].sample
   end
 
