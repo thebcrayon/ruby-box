@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 tickets = [
-  { parent: "Smith", paid: true },
-  { parent: "Garcia", paid: false },
-  { parent: "Nguyen", paid: true },
-  { parent: "Patel", paid: false }
+  { parent: 'Smith', paid: true },
+  { parent: 'Garcia', paid: false },
+  { parent: 'Nguyen', paid: true },
+  { parent: 'Patel', paid: false }
 ]
 
 paid = tickets.select { |ticket| ticket[:paid] }

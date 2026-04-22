@@ -1,10 +1,10 @@
-family = {  uncles: ["bob", "joe", "steve"],
-            sisters: ["jane", "jill", "beth"],
-            brothers: ["frank","rob","david"],
-            aunts: ["mary","sally","susan"]
-          }
+# frozen_string_literal: true
 
-  
-siblings = family.select { |key, value| value if key == :sisters || key == :brothers }
+family = {  uncles: %w[bob joe steve],
+            sisters: %w[jane jill beth],
+            brothers: %w[frank rob david],
+            aunts: %w[mary sally susan] }
+
+siblings = family.select { |key, value| value if %i[sisters brothers].include?(key) }
 
 p siblings.values.flatten

@@ -1,3 +1,5 @@
-teams = ["Houston Spikes", "Bayou Aces", "Texas Diggers"]
+# frozen_string_literal: true
 
-puts teams.include?("Bayou Aces")
+teams = ['Houston Spikes', 'Bayou Aces', 'Texas Diggers']
+
+puts teams.include?('Bayou Aces')

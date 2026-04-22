@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 h = {
-  Dad: "Justin",
-  Mom: "Tonya",
-  Children: ["Riley", "Landon", "Monroe"]
+  Dad: 'Justin',
+  Mom: 'Tonya',
+  Children: %w[Riley Landon Monroe]
 }
 
-h.keys.each { |key| puts(key) }
-h.values.each { |key| puts(key) }
+h.each_key { |key| puts(key) }
+h.each_value { |key| puts(key) }
 
-h.each_pair { |k, v| puts("#{k}: #{v}")}
+h.each_pair { |k, v| puts("#{k}: #{v}") }

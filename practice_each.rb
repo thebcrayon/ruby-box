@@ -1,4 +1,6 @@
-names = ['Bob', 'Joe', 'Steve', 'Janice', 'Susan', 'Helen']
+# frozen_string_literal: true
+
+names = %w[Bob Joe Steve Janice Susan Helen]
 x = 1
 
 names.each do |name|

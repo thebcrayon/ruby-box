@@ -1,4 +1,6 @@
-puts "How old are you?"
+# frozen_string_literal: true
+
+puts 'How old are you?'
 age = gets.chomp.to_i
 puts "You will be #{age + 10} in 10 years"
 puts "You will be #{age + 20} in 20 years"
